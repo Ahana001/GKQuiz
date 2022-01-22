@@ -26,7 +26,6 @@ function play(arr){
         score = score + 1;
     }else{
         console.log("You are Wrong!! Answer is : ", arr.answer);
-        score = score - 1 ;
     }
     return score;
 }
