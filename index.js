@@ -1,7 +1,7 @@
 var readlineSync = require('readline-sync');
 var chalk = require('chalk');
 var log = console.log;
-var right = chalk.greent;
+var right = chalk.green;
 var wrong = chalk.red;
 var info = chalk.bold.blue;
 var score = 0;
@@ -33,9 +33,11 @@ var questionArray = [
 ];
 
 function play(arr){
-    var userAns = readlineSync.keyInSelect(arr.options,arr.question);
+  var userAns = readlineSync.keyInSelect(arr.options,arr.question);
+  if(userAns !== -1){
+    log("your answer "+ arr.options[userAns])
+  }
     if(userAns == arr.answer){
-        log("your answer"+arr.options[userAns])
         log(right("you are right"));
         score = score + 1;
     }else if(userAns == -1){
@@ -48,3 +50,4 @@ function play(arr){
 for(let i=0; i<questionArray.length; i++){
     play(questionArray[i]);
 }
+log(info("your score is : "+score))
