@@ -1,36 +1,50 @@
 var readlineSync = require('readline-sync');
+var chalk = require('chalk');
+var log = console.log;
+var right = chalk.greent;
+var wrong = chalk.red;
+var info = chalk.bold.blue;
 var score = 0;
+
+var userName = readlineSync.question("what is Your name? \n");
+log(info("welcome "+userName));
+
 var questionArray = [
     {
-       question : "Who is the Father of our Nation? ",
-       answer : "Gandhiji"
+      question : "The language spoken by the people by Pakistan is ?",
+      options : ["Hindi","Palauan","Sindhi","Nauruan"],
+      answer : 2
     },
     {
-       question: "Which is the most sensitive organ in our body? ",
-       answer: "Skin"
+       question: "What is the state flower of Haryana?",
+      options : ["Lotus","Rhododendron","Golden Shower","Not declared"],
+       answer: 0
     },
     {
-       question: "Which is the heavier metal of these two? Gold or Silver? ",
-       answer: "Gold"
+       question: "In what state is Elephant Falls located?",
+       options : ["Mizoram","Orissa","Manipur","Meghalaya"],
+       answer: 3
     },
     {
-       question: "Name the game which is played with bat, ball and wicket? ",
-       answer: "Cricket"
+       question: "Name of the first university of India?",
+       options : [" Nalanda University"," Taxshila University"," Jawahar University"," Dronacharya University"],
+       answer: 0
     }
 ];
 
 function play(arr){
-    var userAns = readlineSync.question(arr.question);
-    if(userAns.toUpperCase() === arr.answer.toUpperCase()){
-        console.log("You are Right!!");
+    var userAns = readlineSync.keyInSelect(arr.options,arr.question);
+    if(userAns == arr.answer){
+        log("your answer"+arr.options[userAns])
+        log(right("you are right"));
         score = score + 1;
+    }else if(userAns == -1){
+      log(info("you skip this question"));
     }else{
-        console.log("You are Wrong!! Answer is : ", arr.answer);
+       log(wrong("you are wrong"));
     }
     return score;
 }
 for(let i=0; i<questionArray.length; i++){
     play(questionArray[i]);
 }
-
-console.log("Your score is : ", score);
