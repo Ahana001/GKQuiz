@@ -1,9 +1,11 @@
 # GKQuiz
 CLI App that check your GK 📘📕✏
 
+All questions have 5 options.5th option is for skipping question. you can skip question by give input 0.
 
 # **screenshot**
-![GK Quiz](https://user-images.githubusercontent.com/50478681/174423874-78e4c35a-4988-4906-9922-2e568d921e37.png)
+![GK Quiz](https://user-images.githubusercontent.com/50478681/182416371-55ccfc80-557c-41b6-800a-32dcdb269086.png)
+
 
 # Packages Used
 [readline-sync](https://www.npmjs.com/package/readline-sync)
